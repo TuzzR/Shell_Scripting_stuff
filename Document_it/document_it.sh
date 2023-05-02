@@ -26,6 +26,7 @@ select type in "${!command_types[@]}"; do
 done
 
 section="${command_types[$type]}"
+echo "section: $section" 
 temp_file="commands_temp.md"
 found_section=false
 
@@ -41,6 +42,7 @@ while IFS= read -r line; do
     found_section=false
   fi
 done < commands.md
+
 
 mv "$temp_file" commands.md
 
